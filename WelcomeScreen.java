@@ -8,21 +8,29 @@ public class WelcomeScreen {
         System.out.println("To begin, please select one of the following options:");
         System.out.println(" 1. Login");
         System.out.println(" 2. Register");
-        System.out.println(" 3. Exit");
+        System.out.println(" 3. Forgot Password");
+        System.out.println(" 4. Exit");
         System.out.print("Choose an option: ");
 
         String choice = scanner.nextLine();
 
-        if (choice.equals("1")) {
-            new LoginScreen().display();
-        } else if (choice.equals("2")) {
-            new RegistrationScreen().display();
-        } else if (choice.equals("3")) {
-            System.out.println("Exiting... Goodbye!");
-            System.exit(0);
-        } else {
-            System.out.println("Invalid choice. Try again.");
-            display(); // Restart the menu
+        switch (choice) {
+            case "1":
+                new LoginScreen().display();
+                break;
+            case "2":
+                new RegistrationScreen().display();
+                break;
+            case "3":
+                new PasswordResetScreen().display();
+                break;
+            case "4":
+                System.out.println("Exiting... Goodbye!");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid choice. Try again.");
+                display();
         }
     }
 
